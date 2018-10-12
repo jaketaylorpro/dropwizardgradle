@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="jtaylor (generated)" id="1539316272292-1">
+        <preConditions onFail="MARK_RAN" onFailMessage="Table existed">
+            <not>
+                <tableExists catalogName="test" schemaName="test" tableName="test1"/>
+            </not>
+        </preConditions>
+        <createTable catalogName="test" schemaName="test" tableName="test1">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="test1_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1539316272292-2" author="jtaylor">
+        <addColumn catalogName="test" schemaName="test" tableName="test1">
+            <column name="insertDate" type="timestamp" defaultValueDate="(now() at time zone 'utc')"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

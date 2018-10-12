@@ -1,21 +1,20 @@
-package com.github.jaketaylorpro.dropwizardgradle.rep;
+package com.github.jaketaylorpro.dropwizardgradle.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 
-public class Saying {
+public class Record {
     private long id;
 
-    @Length(max = 3)
-    private String content;
+    private String name;
 
-    public Saying() {
+    public Record() {
         //deserializer
     }
 
-    public Saying(long id,String content) {
+    public Record(long id, String name) {
         this.id = id;
-        this.content = content;
+        this.name = name;
     }
 
     @JsonProperty
@@ -24,8 +23,8 @@ public class Saying {
     }
 
     @JsonProperty
-    public String getContent() {
-        return content;
+    public String getName() {
+        return name;
     }
 
 

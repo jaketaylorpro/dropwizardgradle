@@ -1,7 +1,7 @@
-package com.github.jaketaylorpro.dropwizardgradle.api;
+package com.github.jaketaylorpro.dropwizardgradle.resources;
 
 import com.codahale.metrics.annotation.Timed;
-import com.github.jaketaylorpro.dropwizardgradle.rep.Saying;
+import com.github.jaketaylorpro.dropwizardgradle.api.Saying;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
