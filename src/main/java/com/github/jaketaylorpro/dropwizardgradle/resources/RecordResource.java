@@ -17,6 +17,7 @@ public class RecordResource {
     }
 
     @GET
+    @Path("{id}")
     @Timed
     public Record getRecord(@PathParam("id") int id) {
         return dao.findById(id);

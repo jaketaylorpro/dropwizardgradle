@@ -4,15 +4,13 @@ import com.github.jaketaylorpro.dropwizardgradle.api.Record;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
+import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper;
 
-
+@RegisterMapper(RecordMapper.class)
 public interface RecordDAO {
-    @SqlUpdate("create table something (id int primary key, name varchar(100))")
-    void createRecordTable();
+    @SqlUpdate("insert into test1 (name) values (:name)")
+    void insert(@Bind("name") String name);
 
-    @SqlUpdate("insert into something (id, name) values (:id, :name)")
-    void insert(@Bind("id") int id, @Bind("name") String name);
-
-    @SqlQuery("select * from something where id = :id")
+    @SqlQuery("select * from test1 where id = :id")
     Record findById(@Bind("id") int id);
 }
