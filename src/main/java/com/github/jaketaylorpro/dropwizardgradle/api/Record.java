@@ -1,6 +1,8 @@
 package com.github.jaketaylorpro.dropwizardgradle.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.github.jaketaylorpro.dropwizardgradle.PostgresDateDeserializer;
 import org.hibernate.validator.constraints.Length;
 
 import java.sql.Date;
@@ -33,6 +35,7 @@ public class Record {
     }
 
     @JsonProperty
+    @JsonDeserialize(using = PostgresDateDeserializer.class)
     public Date getInsertDate() {
         return insertDate;
     }
