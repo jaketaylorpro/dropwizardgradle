@@ -7,6 +7,7 @@ import com.github.jaketaylorpro.dropwizardgradle.resources.HelloResource;
 import com.github.jaketaylorpro.dropwizardgradle.health.TemplateHealthCheck;
 import com.github.jaketaylorpro.dropwizardgradle.resources.RecordResource;
 import com.github.jaketaylorpro.dropwizardgradle.resources.RestyRecordResource;
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import io.dropwizard.Application;
 import io.dropwizard.client.HttpClientBuilder;
 import io.dropwizard.db.PooledDataSourceFactory;
@@ -61,4 +62,5 @@ public class App extends Application<Config> {
         environment.jersey().register(new MyExceptionMapper());
 
     }
+
 }
