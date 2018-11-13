@@ -48,6 +48,7 @@ public class Config extends Configuration {
     public HttpClientConfiguration getHttpClientConfiguration() {
         return httpClient;
     }
+
     @JsonProperty("database")
     public void setDataSourceFactory(DataSourceFactory factory) {
         this.database = factory;

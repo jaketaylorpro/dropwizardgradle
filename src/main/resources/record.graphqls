@@ -1,0 +1,9 @@
+type Query {
+    record(id: Int!): Record
+}
+
+type Record {
+    id: String!
+    name: String!
+    insertDate: String! # should we use Date type
+}
